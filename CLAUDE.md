@@ -19,3 +19,21 @@ Brand color anchors: bg #141413, raised surface #1E1E1D, gold #8A7255,
 gold-light #B4966E, platinum #A19688, body text #EDEAE4.
 Display font (starting point): Montserrat (200-300 weight, uppercase, wide
 tracking). Body font (starting point): Inter.
+
+## Progress log
+
+**2026-06-22** — Initial monorepo + frontend scaffold complete.
+- Root shell: `/frontend`, `/backend`, root `README.md`, `.gitignore`, and
+  `package.json` with a `dev` script (`concurrently`) for local dev.
+- `/frontend`: Next.js (App Router, TypeScript), Tailwind pinned to v3 so
+  `tailwind.config.ts` can use classic `theme.extend` ramps. Full 50–900
+  tint/shade ramps generated for `gold`, `platinum`, and `charcoal`,
+  anchored exactly at the brand hex values.
+- Font pairing locked in: Montserrat (200–500) + Inter (400–700), loaded
+  via `next/font/google` as `--font-display` / `--font-body`.
+- `/frontend/components/ui`: `Button`, `Card`, `SectionDivider` primitives
+  built to the brand doc's Section 8 specs. `/frontend/components/sections`
+  scaffolded empty, ready for homepage sections.
+- Brand assets reorganized into `public/brand`, `public/images`,
+  `public/video`.
+- Repo initialized and pushed to `https://github.com/kkarim01/trinity_website`.
