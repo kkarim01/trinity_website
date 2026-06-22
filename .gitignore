@@ -25,6 +25,9 @@ build/
 frontend/build/
 backend/build/
 
+# TypeScript incremental build cache
+*.tsbuildinfo
+
 # OS files
 .DS_Store
 
