@@ -37,3 +37,33 @@ tracking). Body font (starting point): Inter.
 - Brand assets reorganized into `public/brand`, `public/images`,
   `public/video`.
 - Repo initialized and pushed to `https://github.com/kkarim01/trinity_website`.
+
+**2026-06-23** — Backend scaffold, site header, and full homepage section build-out.
+- `/backend`: Express + TypeScript scaffold (`tsx watch` for dev). `GET
+  /api/health`, `POST /api/contact` (validates name/email/message shape,
+  rejects honeypot-filled submissions server-side), CORS via
+  `ALLOWED_ORIGIN`, centralized error-handling middleware, `.env.example`
+  documenting `PORT`, `ALLOWED_ORIGIN`, `ZOHO_SMTP_USER/PASS`,
+  `CONTACT_RECEIVER_EMAIL`. Email sending still stubbed — TODO.
+- `/frontend/components/layout`: `Header` (transparent over hero, solidifies
+  ~90% of a viewport scrolled, 350ms ease-out), `Logo` (mark + hairline
+  divider + stacked wordmark), `NavLinks` (config-driven, anchors named to
+  match future route slugs), `Footer` (logo lockup + Sitemap/Services/Contact
+  columns divided by hairlines, brand tagline with "One Trusted Partner" in
+  gold).
+- `/frontend/components/icons/TriquetraMark.tsx`: the triquetra rebuilt as a
+  vector (stroked vesica-piscis arcs) since the brand PNGs have no alpha
+  channel — true transparency, recolorable, apex correctly oriented up.
+- `/frontend/components/sections`: `Hero` (full-bleed looping muted video,
+  gradient overlay, headline/subhead/CTA), `OurApproach` (silhouette
+  background, "established since" badge — placeholder year, scroll-triggered
+  stat counters in `StatCounters.tsx` — placeholder values, all marked
+  `TODO`), `Pillars` (3 service cards + leaner "Why Trinity" badge strip for
+  the 2 differentiators, Lucide icons), `Contact` (form posts to
+  `${NEXT_PUBLIC_API_URL}/api/contact`, loading/success/error states,
+  honeypot field).
+- Added `lucide-react` dependency. `frontend/.env.local` (gitignored) holds
+  `NEXT_PUBLIC_API_URL=http://localhost:4000` for local dev.
+- Outstanding TODOs left in code: real founding year, team-experience/
+  satisfaction/response-time stats, contact email + phone in the footer,
+  Zoho SMTP wiring for the contact endpoint.
