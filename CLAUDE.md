@@ -77,3 +77,19 @@ tracking). Body font (starting point): Inter.
 - `Footer.tsx`'s services column updated to match the new 5-service list.
 - `Email_Banner_C.png` added to `public/brand/` as the current horizontal
   lockup reference asset.
+
+**2026-06-23 (later still)** — Header background tuning + a text-legibility
+variant lab (WIP, not yet cleaned up).
+- `Header.tsx`'s unscrolled state no longer goes fully transparent — a
+  baseline gradient scrim + `backdrop-blur-sm` is always present, deepening
+  to the existing solid state on scroll.
+- Added a temporary, removable preview rig in `/frontend/components/dev/`
+  (`HeaderTextVariantContext`, `HeaderTextVariantToggle`,
+  `headerTextVariantStyles.ts`) to compare 15 different treatments for the
+  nav links and wordmark side by side — press **V** at `localhost:3000`,
+  or click the bottom-center pill, to cycle Default through Variant N
+  (text stroke, borders/capsules, gradient fill, header-surface strength,
+  color/opacity hierarchy, text-shadow, nameplate panel, etc.).
+- This is intentionally WIP: once a direction is picked, the `dev/` folder,
+  the provider/toggle wiring in `page.tsx`, and the `variant` prop plumbing
+  in `Header.tsx`/`Logo.tsx`/`NavLinks.tsx` should all be removed.
