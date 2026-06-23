@@ -67,3 +67,13 @@ tracking). Body font (starting point): Inter.
 - Outstanding TODOs left in code: real founding year, team-experience/
   satisfaction/response-time stats, contact email + phone in the footer,
   Zoho SMTP wiring for the contact endpoint.
+
+**2026-06-23 (later)** — Pillars section rebuilt for the new 5-service lineup.
+- `Pillars.tsx` rebuilt as a clean, equal-weight 5-card grid. Added AI
+  Integration & Automation (`Brain` icon), MVP & Rapid Prototyping
+  (`Rocket` icon), and Digital Process Consulting (`BarChart2` icon).
+- Client-Centric and No Outsourcing removed from the site entirely — the
+  separate "Why Trinity" badge strip is gone.
+- `Footer.tsx`'s services column updated to match the new 5-service list.
+- `Email_Banner_C.png` added to `public/brand/` as the current horizontal
+  lockup reference asset.

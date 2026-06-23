@@ -57,7 +57,7 @@ Copy your 5 local files into `/frontend/public` using these paths — every prom
 |---|---|---|
 | `Website_Video_A.mp4` | `/frontend/public/video/trinity-hero.mp4` | Hero background video |
 | `Website_Silhouette_B.png` | `/frontend/public/images/trinity-silhouette.png` | "Our Approach" section background |
-| `Email_Banner_B.png` | `/frontend/public/brand/trinity-logo-wide.png` | Horizontal lockup — header & footer (current pillar set + tagline) |
+| `Email_Banner_C.png` | `/frontend/public/brand/trinity-logo-wide.png` | Horizontal lockup — header & footer (current 5-service pillar set: Custom Development, Business Process Automation & Integration, AI Integration & Automation, MVP & Rapid Prototyping, Digital Process Consulting + tagline) |
 | `Initial_Logo_A.png` | `/frontend/public/brand/trinity-mark.png` | Clean isolated triquetra — favicon & vector-rebuild source |
 | `Initial_Logo.png` | `/frontend/public/brand/trinity-logo-stacked.png` | Stacked square lockup — kept as a shape/layout reference only (see note) |
 

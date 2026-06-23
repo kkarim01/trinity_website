@@ -1,4 +1,4 @@
-import { Cloud, Code2, RefreshCw, ShieldCheck, Users } from "lucide-react";
+import { BarChart2, Brain, Code2, RefreshCw, Rocket } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 
 import { Card } from "@/components/ui/Card";
@@ -10,7 +10,9 @@ type Pillar = {
   description: string;
 };
 
-// The 3 genuine services from the brand banner — get full cards.
+// The 5 genuine services from the brand banner (Email_Banner_C.png).
+// Client-Centric and No Outsourcing are positioning statements, not
+// services, and are excluded from this version of the site.
 const services: Pillar[] = [
   {
     id: "custom-development",
@@ -22,34 +24,30 @@ const services: Pillar[] = [
   {
     id: "business-process-automation",
     icon: RefreshCw,
-    title: "Business Process Automation",
+    title: "Business Process Automation & Integration",
     description:
-      "We streamline the repetitive work so your team can focus on what matters.",
+      "We streamline repetitive work and connect your existing systems, so your team can focus on what matters.",
   },
   {
-    id: "cloud-services",
-    icon: Cloud,
-    title: "Cloud Services",
+    id: "ai-integration-automation",
+    icon: Brain,
+    title: "AI Integration & Automation",
     description:
-      "Secure, scalable infrastructure managed end-to-end, with no guesswork.",
-  },
-];
-
-// The remaining 2 banner items are positioning, not services — a leaner
-// badge strip rather than cards identical to the services above.
-const differentiators: Pillar[] = [
-  {
-    id: "client-centric",
-    icon: Users,
-    title: "Client-Centric",
-    description:
-      "Every engagement is built around your priorities, not a one-size-fits-all package.",
+      "We embed practical AI into your existing workflows, not bolted-on chatbots.",
   },
   {
-    id: "no-outsourcing",
-    icon: ShieldCheck,
-    title: "No Outsourcing",
-    description: "Your project stays with our in-house team, start to finish.",
+    id: "mvp-rapid-prototyping",
+    icon: Rocket,
+    title: "MVP & Rapid Prototyping",
+    description:
+      "Go from idea to a working product fast, without cutting corners on quality.",
+  },
+  {
+    id: "digital-process-consulting",
+    icon: BarChart2,
+    title: "Digital Process Consulting",
+    description:
+      "We map how your business runs today and design a clearer, faster way to run it tomorrow.",
   },
 ];
 
@@ -64,7 +62,7 @@ export function Pillars() {
           Everything Your IT Needs, Under One Roof.
         </h2>
 
-        <div className="mt-14 grid gap-6 md:grid-cols-3">
+        <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {services.map((service) => (
             <Card key={service.id} className="group">
               <service.icon
@@ -78,28 +76,6 @@ export function Pillars() {
                 {service.description}
               </p>
             </Card>
-          ))}
-        </div>
-
-        <div className="mt-8 flex flex-col gap-4 sm:flex-row">
-          {differentiators.map((item) => (
-            <div
-              key={item.id}
-              className="group flex flex-1 items-start gap-4 rounded-sm border border-hairline bg-onyx-raised/60 px-6 py-5"
-            >
-              <item.icon
-                strokeWidth={1.5}
-                className="h-6 w-6 shrink-0 text-gold transition-colors duration-300 group-hover:text-gold-light"
-              />
-              <div>
-                <p className="font-display text-sm font-medium uppercase tracking-[0.1em] text-ink-primary">
-                  {item.title}
-                </p>
-                <p className="mt-1.5 font-body text-sm text-platinum">
-                  {item.description}
-                </p>
-              </div>
-            </div>
           ))}
         </div>
       </div>

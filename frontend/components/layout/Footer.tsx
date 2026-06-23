@@ -8,12 +8,14 @@ const footerHeadingClasses =
 const footerLinkClasses =
   "font-body text-sm text-platinum transition-colors duration-300 hover:text-gold-light";
 
-// Mirrors the 3 genuine services from the brand banner (Pillars.tsx) —
+// Mirrors the 5 genuine services from the brand banner (Pillars.tsx) —
 // kept as a static list here since there are no per-service routes yet.
 const services = [
   "Custom Development",
-  "Business Process Automation",
-  "Cloud Services",
+  "Business Process Automation & Integration",
+  "AI Integration & Automation",
+  "MVP & Rapid Prototyping",
+  "Digital Process Consulting",
 ];
 
 export function Footer() {
