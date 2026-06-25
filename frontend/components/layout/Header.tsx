@@ -2,11 +2,8 @@
 
 import { useEffect, useState } from "react";
 
-import { useHeaderTextVariant } from "@/components/dev/HeaderTextVariantContext";
-import { getHeaderSurfaceClasses } from "@/components/dev/headerTextVariantStyles";
 import { Logo } from "@/components/layout/Logo";
 import { NavLinks } from "@/components/layout/NavLinks";
-import { SectionDivider } from "@/components/ui/SectionDivider";
 
 // Header solidifies once the page has scrolled roughly past a full-height
 // hero. Revisit if the hero's actual height ends up shorter/taller than ~1vh.
@@ -14,7 +11,6 @@ const SCROLL_THRESHOLD_VH = 0.9;
 
 export function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
-  const { variant } = useHeaderTextVariant(); // TEMP preview — see HeaderTextVariantContext.tsx
 
   useEffect(() => {
     function handleScroll() {
@@ -33,17 +29,16 @@ export function Header() {
         "transition-all duration-[350ms] ease-out motion-reduce:transition-none",
         isScrolled
           ? "bg-onyx-raised/95 border-hairline shadow-lg shadow-black/30 backdrop-blur-sm"
-          : getHeaderSurfaceClasses(variant),
+          : "bg-gradient-to-b from-onyx-base/75 via-onyx-base/35 to-transparent border-transparent shadow-none backdrop-blur-sm",
       ].join(" ")}
     >
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-5 md:px-10">
-        <div className="flex items-center gap-6 md:gap-8">
-          <Logo variant={variant} />
-          <div className="hidden h-8 md:block">
-            <SectionDivider orientation="vertical" />
-          </div>
-        </div>
-        <NavLinks variant={variant} />
+      {/* Fixed height (the original py-5 + content row size) keeps the bar
+          from growing with the 80px mark; overflow is left at its default
+          (visible) so the mark bleeds slightly past the bar instead of
+          being clipped — reads as intentional rather than a layout bug. */}
+      <div className="flex h-[72px] w-full items-center justify-between pl-10 pr-6 md:pl-14 md:pr-10">
+        <Logo />
+        <NavLinks />
       </div>
     </header>
   );

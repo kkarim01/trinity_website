@@ -1,38 +1,20 @@
 import Link from "next/link";
 
 import { TriquetraMark } from "@/components/icons/TriquetraMark";
-import { SectionDivider } from "@/components/ui/SectionDivider";
-import type { HeaderTextVariant } from "@/components/dev/HeaderTextVariantContext";
-import {
-  getWordmarkPrimaryClasses,
-  getWordmarkSecondaryClasses,
-  getWordmarkWrapperClasses,
-} from "@/components/dev/headerTextVariantStyles";
 
-// `variant` is a TEMP preview prop (see HeaderTextVariantContext.tsx) —
-// defaults to "default" so other callers (e.g. Footer) are unaffected.
-export function Logo({ variant = "default" as HeaderTextVariant }: { variant?: HeaderTextVariant }) {
+export function Logo() {
   return (
     <Link
       href="#top"
-      className="flex items-center gap-4 focus-visible:outline-none
+      className="flex items-center gap-1 focus-visible:outline-none
         focus-visible:ring-2 focus-visible:ring-gold focus-visible:rounded-sm"
     >
-      <TriquetraMark className="h-8 w-8 text-gold-light shrink-0" />
-      <div className="h-8">
-        <SectionDivider orientation="vertical" />
-      </div>
-      <span
-        className={`flex flex-col leading-none ${getWordmarkWrapperClasses(variant)}`}
-      >
-        <span
-          className={`font-display font-light text-base tracking-[0.25em] ${getWordmarkPrimaryClasses(variant)}`}
-        >
+      <TriquetraMark className="h-20 w-20 shrink-0" />
+      <span className="flex flex-col items-center text-center leading-none">
+        <span className="font-display font-normal text-base tracking-[0.25em] text-[#D4CFC8]">
           TRINITY
         </span>
-        <span
-          className={`font-display font-light text-[10px] tracking-[0.3em] mt-1.5 ${getWordmarkSecondaryClasses(variant)}`}
-        >
+        <span className="font-display font-normal text-[10px] tracking-[0.3em] mt-1.5 text-[#D4CFC8]">
           PROCESS SOLUTIONS
         </span>
       </span>

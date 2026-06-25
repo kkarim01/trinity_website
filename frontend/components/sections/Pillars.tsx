@@ -1,5 +1,6 @@
 import { BarChart2, Brain, Code2, RefreshCw, Rocket } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
+import Image from "next/image";
 
 import { Card } from "@/components/ui/Card";
 
@@ -53,8 +54,26 @@ const services: Pillar[] = [
 
 export function Pillars() {
   return (
-    <section id="services" className="bg-onyx-base py-28 md:py-36">
-      <div className="mx-auto max-w-6xl px-6 md:px-10 lg:px-16">
+    <section
+      id="services"
+      className="relative overflow-hidden bg-onyx-base py-28 md:py-36"
+    >
+      {/* Source is 1536x1024 with the triquetra mark sitting right-of-center,
+          vertically centered, above a faint skyline. The section is much
+          taller than the image's 3:2 ratio, so object-cover crops mostly
+          top/bottom — object-right keeps the mark (the most interesting
+          part of the frame) anchored in view instead of centered and risking
+          a left-heavy, empty-looking crop. */}
+      <Image
+        src="/images/Website_Services.png"
+        alt=""
+        fill
+        className="object-cover object-right"
+        sizes="100vw"
+      />
+      <div className="absolute inset-0 bg-gradient-to-b from-onyx-base/85 via-onyx-base/70 to-onyx-base/90" />
+
+      <div className="relative z-10 mx-auto max-w-6xl px-6 md:px-10 lg:px-16">
         <p className="font-display text-xs uppercase tracking-[0.2em] text-gold-light">
           What We Do
         </p>

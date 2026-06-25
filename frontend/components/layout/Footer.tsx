@@ -1,91 +1,32 @@
 import { Logo } from "@/components/layout/Logo";
-import { navItems } from "@/components/layout/NavLinks";
-import { SectionDivider } from "@/components/ui/SectionDivider";
 
-const footerHeadingClasses =
-  "font-display text-xs uppercase tracking-[0.18em] text-gold-light";
-
-const footerLinkClasses =
-  "font-body text-sm text-platinum transition-colors duration-300 hover:text-gold-light";
-
-// Mirrors the 5 genuine services from the brand banner (Pillars.tsx) —
-// kept as a static list here since there are no per-service routes yet.
-const services = [
-  "Custom Development",
-  "Business Process Automation & Integration",
-  "AI Integration & Automation",
-  "MVP & Rapid Prototyping",
-  "Digital Process Consulting",
-];
+const legalLinkClasses =
+  "font-display text-[11px] uppercase tracking-[0.18em] text-platinum transition-colors duration-300 hover:text-gold-light";
 
 export function Footer() {
   return (
     <footer className="bg-onyx-sunken">
-      <div className="mx-auto max-w-7xl px-6 py-16 md:px-10 lg:px-16">
-        <div className="flex flex-col gap-12 lg:flex-row lg:items-stretch lg:gap-0">
-          <div className="lg:pr-12">
-            <Logo />
-          </div>
+      <div className="mx-auto flex max-w-7xl flex-col items-center gap-6 px-6 py-8 md:flex-row md:items-center md:justify-between md:px-10 md:py-10 lg:px-8">
+        <Logo />
 
-          <SectionDivider orientation="vertical" className="hidden lg:block" />
-
-          <div className="flex flex-col gap-10 sm:flex-row lg:flex-1 lg:items-stretch">
-            <div className="sm:flex-1 lg:px-12">
-              <h3 className={footerHeadingClasses}>Sitemap</h3>
-              <ul className="mt-5 space-y-3">
-                {navItems.map((item) => (
-                  <li key={item.id}>
-                    <a href={item.href} className={footerLinkClasses}>
-                      {item.label}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            <SectionDivider orientation="vertical" className="hidden sm:block" />
-
-            <div className="sm:flex-1 lg:px-12">
-              <h3 className={footerHeadingClasses}>Services</h3>
-              <ul className="mt-5 space-y-3">
-                {services.map((service) => (
-                  <li key={service}>
-                    <a href="#services" className={footerLinkClasses}>
-                      {service}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            <SectionDivider orientation="vertical" className="hidden sm:block" />
-
-            <div className="sm:flex-1 lg:px-12">
-              <h3 className={footerHeadingClasses}>Contact</h3>
-              <ul className="mt-5 space-y-3">
-                <li>
-                  {/* TODO: replace with the real contact email (mailto:) */}
-                  <a href="#" className={footerLinkClasses}>
-                    [Contact Email]
-                  </a>
-                </li>
-                <li>
-                  {/* TODO: replace with the real phone number (tel:) */}
-                  <a href="#" className={footerLinkClasses}>
-                    [Phone Number]
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </div>
+        <div className="text-center font-body text-xs text-platinum/70">
+          <p>© 2026 Trinity Process Solutions Pty Ltd. All rights reserved.</p>
+          {/* TODO: replace with the real ABN */}
+          <p>ABN: [ABN NUMBER]</p>
         </div>
 
-        <SectionDivider className="mt-16" />
-
-        <p className="mt-8 text-center font-body text-xs text-platinum">
-          Boutique Solutions. Built For Your Business. Everything You Need.{" "}
-          <span className="text-gold-light">One Trusted Partner.</span>
-        </p>
+        {/* TODO: point these at /about and /privacy once those routes exist */}
+        <nav className="flex flex-wrap items-center justify-center gap-6 md:justify-end">
+          <a href="#" className={legalLinkClasses}>
+            About
+          </a>
+          <a href="#" className={legalLinkClasses}>
+            Privacy Policy
+          </a>
+          <a href="#contact" className={legalLinkClasses}>
+            Contact
+          </a>
+        </nav>
       </div>
     </footer>
   );
