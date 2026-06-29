@@ -115,3 +115,17 @@ toggle, new background assets.
   layout is chosen.
 - New assets committed to `public/`: `Website_Silhouette_C.png`,
   `Website_Services_B.png`, `Website_Silhouette_Video.mp4`.
+
+**2026-06-29 (later)** — Pillars layout locked in, dev toggle removed.
+- Centred layout chosen and rendered directly in `Pillars.tsx`: 6-column
+  grid (`grid-cols-6`), all 5 cards use `col-span-2 flex` so widths are
+  identical. Card 4 uses `col-start-2` to centre the bottom two under the
+  top three.
+- `cardClass` updated with `h-full w-full` so each card fills its flex
+  container, equalising heights across the row.
+- `"use client"` directive removed from `Pillars.tsx` (was only needed for
+  the layout-toggle hook).
+- `PillarsLayout*` dev files deleted (`/frontend/components/dev/` now
+  empty and removed). `PillarsLayoutWrapper` stripped from `page.tsx`;
+  `Pillars` rendered directly.
+- `scroll-mt` on the Services section set to `[40px]`.
