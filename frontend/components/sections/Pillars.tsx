@@ -1,8 +1,11 @@
+"use client";
+
 import { BarChart2, Brain, Code2, RefreshCw, Rocket } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 import Image from "next/image";
 
-import { Card } from "@/components/ui/Card";
+import { usePillarsLayout } from "@/components/dev/PillarsLayoutContext";
+import { pillarsLayoutVariants } from "@/components/dev/pillarsLayoutVariants";
 
 type Pillar = {
   id: string;
@@ -52,20 +55,39 @@ const services: Pillar[] = [
   },
 ];
 
+const cardClass =
+  "group relative border-l-2 border-gold/40 bg-onyx-raised/80 py-4 pl-6 backdrop-blur-sm transition-all duration-300 hover:border-gold hover:bg-onyx-raised hover:shadow-[0_0_20px_rgba(180,150,110,0.12)]";
+
+function ServiceCard({ service }: { service: Pillar }) {
+  const Icon = service.icon;
+  return (
+    <div className={cardClass}>
+      <Icon size={24} strokeWidth={1.5} className="text-gold" />
+      <h3 className="mt-4 font-display text-sm font-medium uppercase tracking-[0.08em] text-ink-primary">
+        {service.title}
+      </h3>
+      <p className="mt-2 font-body text-sm text-platinum">
+        {service.description}
+      </p>
+    </div>
+  );
+}
+
 export function Pillars() {
+  const { variant } = usePillarsLayout();
+  const v = pillarsLayoutVariants[variant];
+
   return (
     <section
       id="services"
-      className="relative overflow-hidden bg-onyx-base py-28 md:py-36"
+      className="relative overflow-hidden bg-onyx-base pt-16 pb-28 md:pt-20 md:pb-36 scroll-mt-[60px]"
     >
-      {/* Source is 1536x1024 with the triquetra mark sitting right-of-center,
-          vertically centered, above a faint skyline. The section is much
-          taller than the image's 3:2 ratio, so object-cover crops mostly
-          top/bottom — object-right keeps the mark (the most interesting
-          part of the frame) anchored in view instead of centered and risking
-          a left-heavy, empty-looking crop. */}
+      {/* Source is 1536×1024 (3:2). The section is taller than this ratio, so
+          object-cover crops top/bottom. object-center keeps the composition
+          balanced — this variant's focal detail is horizontally centered
+          rather than right-weighted, so center avoids an off-balance crop. */}
       <Image
-        src="/images/Website_Services.png"
+        src="/images/Website_Services_B.png"
         alt=""
         fill
         className="object-cover object-right"
@@ -78,25 +100,47 @@ export function Pillars() {
           What We Do
         </p>
         <h2 className="mt-3 max-w-xl font-display text-3xl font-light text-ink-primary sm:text-4xl">
-          Everything Your IT Needs, Under One Roof.
+          Everything Your Business Needs, Under One Roof.
         </h2>
 
-        <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {services.map((service) => (
-            <Card key={service.id} className="group">
-              <service.icon
-                strokeWidth={1.5}
-                className="h-8 w-8 text-gold transition-colors duration-300 group-hover:text-gold-light"
-              />
-              <h3 className="mt-6 font-display text-lg font-medium uppercase tracking-[0.08em] text-ink-primary">
-                {service.title}
-              </h3>
-              <p className="mt-3 font-body text-sm text-platinum">
-                {service.description}
-              </p>
-            </Card>
-          ))}
-        </div>
+        {v.layout === "default" && (
+          <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {services.map((s) => (
+              <ServiceCard key={s.id} service={s} />
+            ))}
+          </div>
+        )}
+
+        {v.layout === "centred" && (
+          <div className="mt-14 space-y-6">
+            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+              {services.slice(0, 3).map((s) => (
+                <ServiceCard key={s.id} service={s} />
+              ))}
+            </div>
+            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-2 lg:max-w-[calc(66.666%+0.75rem)] lg:mx-auto">
+              {services.slice(3).map((s) => (
+                <ServiceCard key={s.id} service={s} />
+              ))}
+            </div>
+          </div>
+        )}
+
+        {v.layout === "right" && (
+          <div className="mt-14 space-y-6">
+            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+              {services.slice(0, 3).map((s) => (
+                <ServiceCard key={s.id} service={s} />
+              ))}
+            </div>
+            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+              <div />
+              {services.slice(3).map((s) => (
+                <ServiceCard key={s.id} service={s} />
+              ))}
+            </div>
+          </div>
+        )}
       </div>
     </section>
   );

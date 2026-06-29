@@ -1,4 +1,5 @@
 import { Contact } from "@/components/sections/Contact";
+import { PillarsLayoutWrapper } from "@/components/dev/PillarsLayoutWrapper";
 import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
 import { Hero } from "@/components/sections/Hero";
@@ -12,7 +13,9 @@ export default function Home() {
         <Header />
         <Hero />
         <OurApproach />
-        <Pillars />
+        <PillarsLayoutWrapper>
+          <Pillars />
+        </PillarsLayoutWrapper>
         <Contact />
       </main>
       <Footer />
