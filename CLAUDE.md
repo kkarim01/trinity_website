@@ -93,3 +93,25 @@ variant lab (WIP, not yet cleaned up).
 - This is intentionally WIP: once a direction is picked, the `dev/` folder,
   the provider/toggle wiring in `page.tsx`, and the `variant` prop plumbing
   in `Header.tsx`/`Logo.tsx`/`NavLinks.tsx` should all be removed.
+
+**2026-06-29** — OurApproach redesign, Pillars card style lock-in + layout
+toggle, new background assets.
+- `OurApproach.tsx` rebuilt as a two-column flex layout: 520px text column
+  (badge, headline, subhead, CTA) on the left; 560px compact card column on
+  the right (5 cards: Boutique by Design, Australia-Based, Senior-Led,
+  Client-Centric, No Outsourcing). Cards use a hairline-border box with gold
+  icon row layout. Background swapped to `Website_Silhouette_C.png`
+  (1672×941, `object-top`). Headline: "Built to Grow With Your Business."
+- `Pillars.tsx` card style locked in permanently: minimal left-border
+  treatment (`border-l-2 border-gold/40 bg-onyx-raised/80`), 24px gold
+  icons, sm title/desc text. Background swapped to `Website_Services_B.png`.
+  Headline: "Everything Your Business Needs, Under One Roof." Top padding
+  reduced to `pt-16 md:pt-20`; `scroll-mt-[60px]` added for the Services
+  nav anchor.
+- Dev toggle (WIP): `PillarsLayout*` files in `/frontend/components/dev/`
+  let you press **V** to cycle 3 layouts for the bottom 2 service cards —
+  default (left-aligned), centred (cols 2–3 of a 3-col grid), right-aligned.
+  Remove `dev/` folder and `PillarsLayoutWrapper` from `page.tsx` once a
+  layout is chosen.
+- New assets committed to `public/`: `Website_Silhouette_C.png`,
+  `Website_Services_B.png`, `Website_Silhouette_Video.mp4`.
