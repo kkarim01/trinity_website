@@ -45,7 +45,7 @@ export function Contact() {
             message: formData.get("message"),
             company: formData.get("company"),
           }),
-        }
+        },
       );
 
       if (!response.ok) throw new Error("Request failed");
@@ -58,7 +58,10 @@ export function Contact() {
   }
 
   return (
-    <section id="contact" className="relative overflow-hidden bg-onyx-base py-28 md:py-36">
+    <section
+      id="contact"
+      className="relative overflow-hidden bg-onyx-base py-28 md:py-36 scroll-mt-[-36px]"
+    >
       <Image
         src="/images/Website_Contact.png"
         alt=""
@@ -70,11 +73,15 @@ export function Contact() {
       <div className="absolute inset-0 bg-gradient-to-t from-onyx-base/90 via-onyx-base/60 to-onyx-base/20" />
 
       <div className="relative z-10 mx-auto max-w-2xl px-6 text-center md:px-10">
-        <h2 className="font-display text-3xl font-light text-ink-primary sm:text-4xl">
-          Start the Conversation.
+        <h2 className="font-display text-3xl font-light sm:text-4xl">
+          <span className="inline border border-gold/60 bg-onyx-base/70 px-3 py-1 rounded-sm text-ink-primary leading-relaxed">
+            Start the Conversation.
+          </span>
         </h2>
-        <p className="mt-4 font-body text-lg text-platinum">
-          Tell us what you&rsquo;re working on and we&rsquo;ll take it from there.
+        <p className="mt-4">
+          <span className="inline border border-gold/60 bg-onyx-base/70 px-3 py-1 rounded-sm text-platinum font-body text-lg leading-relaxed">
+            Tell us what you&rsquo;re working on and we&rsquo;ll take it from there.
+          </span>
         </p>
 
         <form onSubmit={handleSubmit} className="mt-12 text-left">
