@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { AlertCircle, CheckCircle2 } from "lucide-react";
 import { useState, type FormEvent } from "react";
 
@@ -57,13 +58,23 @@ export function Contact() {
   }
 
   return (
-    <section id="contact" className="bg-onyx-base py-28 md:py-36">
-      <div className="mx-auto max-w-2xl px-6 text-center md:px-10">
+    <section id="contact" className="relative overflow-hidden bg-onyx-base py-28 md:py-36">
+      <Image
+        src="/images/Website_Contact.png"
+        alt=""
+        fill
+        className="object-cover"
+        sizes="100vw"
+      />
+
+      <div className="absolute inset-0 bg-gradient-to-t from-onyx-base/90 via-onyx-base/60 to-onyx-base/20" />
+
+      <div className="relative z-10 mx-auto max-w-2xl px-6 text-center md:px-10">
         <h2 className="font-display text-3xl font-light text-ink-primary sm:text-4xl">
-          Ready for One Trusted Partner?
+          Start the Conversation.
         </h2>
         <p className="mt-4 font-body text-lg text-platinum">
-          Tell us about your business — we&rsquo;ll follow up shortly.
+          Tell us what you&rsquo;re working on and we&rsquo;ll take it from there.
         </p>
 
         <form onSubmit={handleSubmit} className="mt-12 text-left">
