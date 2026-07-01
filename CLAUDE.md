@@ -129,3 +129,17 @@ toggle, new background assets.
   empty and removed). `PillarsLayoutWrapper` stripped from `page.tsx`;
   `Pillars` rendered directly.
 - `scroll-mt` on the Services section set to `[40px]`.
+
+**2026-07-01** — Contact section rebuilt with full-bleed background and locked-in copy/style.
+- `Contact.tsx` rebuilt: full-bleed `Website_Contact.png` background with
+  `bg-gradient-to-t from-onyx-base/90 via-onyx-base/60 to-onyx-base/20`
+  overlay. `scroll-mt-[-36px]` on the section for nav-anchor alignment.
+- Headline updated to "Start the Conversation." Subhead updated to "Tell us
+  what you're working on and we'll take it from there."
+- Headline and subhead wrapped in `inline` spans with a locked-in gold-hairline
+  charcoal pill treatment: `border border-gold/60 bg-onyx-base/70 px-3 py-1
+  rounded-sm leading-relaxed`. Chosen via a 10-variant V-key dev toggle
+  (background-layout toggle + text-highlight toggle), both removed after
+  lock-in.
+- New assets committed to `public/`: `Website_Contact.png`,
+  `Website_Contact_Image.png`, `Website_Contact_Video.mp4`.
